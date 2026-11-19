@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yogi_PLY Studio — Configuration & Pre-Embedding Hub</title>
+  <meta name="description" content="Configure and generate code for Yogi_PLY - Universal Cinematic Liquid Glass Video Player. Created By Shiv Yogi.">
+  
+  <!-- Yogi_PLY Library Stylesheet -->
+  <link rel="stylesheet" href="../dist/yogi-ply.min.css">
+  <link rel="stylesheet" href="./dashboard/studio.css">
+</head>
+<body class="studio-body">
+
+  <div id="studio-app"></div>
+
+  <!-- Load Yogi_PLY Runtime and Studio Application -->
+  <script src="../dist/yogi-ply.js"></script>
+  <script type="module">
+    import { StudioDashboard } from './dashboard/StudioDashboard.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const appEl = document.getElementById('studio-app');
+      new StudioDashboard(appEl);
+    });
+  </script>
+</body>
+</html>

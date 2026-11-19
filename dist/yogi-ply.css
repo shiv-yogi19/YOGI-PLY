@@ -1,0 +1,1987 @@
+/*! Yogi_PLY v1.0.0 | Universal Liquid Glass Video Player | Created By Shiv Yogi | MIT License */
+/**
+ * Yogi_PLY - Universal Liquid Glass Video Player Stylesheet
+ * Created By Shiv Yogi
+ * Tagline: One Player. Every Website.
+ */
+
+/**
+ * Yogi_PLY - 40+ Cinematic Liquid Glass Animations & Transitions
+ * Created By Shiv Yogi
+ * Tagline: One Player. Every Website.
+ */
+
+/* ========================================================
+   1. PLAYER ENTRANCE & EXIT
+   ======================================================== */
+@keyframes yogi-player-enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.97) translateY(8px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes yogi-player-exit {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+    filter: blur(6px);
+  }
+}
+
+.yogi-anim-player-enter {
+  animation: yogi-player-enter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.yogi-anim-player-exit {
+  animation: yogi-player-exit 0.4s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+/* ========================================================
+   2. BUTTON TAP & PRESS FEEDBACK
+   ======================================================== */
+@keyframes yogi-play-tap {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.86); }
+  75% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+@keyframes yogi-pause-tap {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.9); }
+  80% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+@keyframes yogi-btn-press {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.92); }
+  100% { transform: scale(1); }
+}
+
+@keyframes yogi-btn-glow {
+  0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+  50% { box-shadow: 0 0 20px 4px var(--accent-glow, rgba(99, 102, 241, 0.45)); }
+  100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+}
+
+.yogi-anim-play-tap {
+  animation: yogi-play-tap 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.yogi-anim-pause-tap {
+  animation: yogi-pause-tap 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.yogi-anim-press {
+  animation: yogi-btn-press 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.yogi-anim-glow {
+  animation: yogi-btn-glow 0.8s ease-in-out;
+}
+
+/* ========================================================
+   3. CONTROL DOCK ENTRANCE & AUTO-HIDE
+   ======================================================== */
+@keyframes yogi-dock-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes yogi-dock-exit {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+    pointer-events: none;
+  }
+}
+
+.yogi-anim-dock-enter {
+  animation: yogi-dock-enter 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.yogi-anim-dock-exit {
+  animation: yogi-dock-exit 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ========================================================
+   4. THREE-DOT BUTTON & MORE FEATURES MENU
+   ======================================================== */
+@keyframes yogi-more-tap {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(90deg) scale(1.15); }
+  100% { transform: rotate(90deg) scale(1); }
+}
+
+@keyframes yogi-more-reset {
+  0% { transform: rotate(90deg) scale(1); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+@keyframes yogi-menu-expand {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.92);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes yogi-menu-collapse {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.94);
+    filter: blur(6px);
+  }
+}
+
+.yogi-anim-more-tap {
+  animation: yogi-more-tap 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.yogi-anim-more-reset {
+  animation: yogi-more-reset 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.yogi-anim-menu-expand {
+  animation: yogi-menu-expand 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.yogi-anim-menu-collapse {
+  animation: yogi-menu-collapse 0.24s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+/* ========================================================
+   5. SETTINGS PANEL ENTRANCE & EXIT
+   ======================================================== */
+@keyframes yogi-panel-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.94);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes yogi-panel-exit {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.94);
+    filter: blur(6px);
+  }
+}
+
+.yogi-anim-panel-enter {
+  animation: yogi-panel-enter 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.yogi-anim-panel-exit {
+  animation: yogi-panel-exit 0.25s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+/* ========================================================
+   6. SEEKBAR INTERACTION & HOVER PREVIEW
+   ======================================================== */
+@keyframes yogi-seek-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.35); box-shadow: 0 0 12px var(--accent); }
+  100% { transform: scale(1.2); }
+}
+
+@keyframes yogi-seek-preview-enter {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 6px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.yogi-anim-seek-active {
+  animation: yogi-seek-pulse 0.25s ease-out forwards;
+}
+
+.yogi-anim-seek-preview {
+  animation: yogi-seek-preview-enter 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ========================================================
+   7. VOLUME SLIDER TRANSITION
+   ======================================================== */
+@keyframes yogi-volume-slide {
+  0% {
+    width: 0;
+    opacity: 0;
+    transform: scaleX(0.7);
+  }
+  100% {
+    width: 76px;
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+.yogi-anim-volume-slide {
+  animation: yogi-volume-slide 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ========================================================
+   8. LOADING SPINNER & BUFFERING ANIMATION
+   ======================================================== */
+@keyframes yogi-spinner-rot {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes yogi-buffering-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.04);
+  }
+}
+
+.yogi-anim-spinner {
+  animation: yogi-spinner-rot 0.9s linear infinite;
+}
+
+.yogi-anim-buffering {
+  animation: yogi-buffering-pulse 1.4s ease-in-out infinite;
+}
+
+/* ========================================================
+   9. SUBTITLES ENTRANCE & EXIT
+   ======================================================== */
+@keyframes yogi-sub-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes yogi-sub-exit {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.yogi-anim-sub-enter {
+  animation: yogi-sub-enter 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.yogi-anim-sub-exit {
+  animation: yogi-sub-exit 0.18s ease-in forwards;
+}
+
+/* ========================================================
+   10. PLAYLIST DRAWER ENTRANCE & EXIT
+   ======================================================== */
+@keyframes yogi-playlist-enter {
+  0% {
+    transform: translateX(100%);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes yogi-playlist-exit {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.yogi-anim-playlist-enter {
+  animation: yogi-playlist-enter 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.yogi-anim-playlist-exit {
+  animation: yogi-playlist-exit 0.3s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+/* ========================================================
+   11. THEME, FULLSCREEN & THEATRE TRANSITION
+   ======================================================== */
+.yogi-anim-theme-transition {
+  transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.yogi-anim-fullscreen-enter {
+  transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease;
+}
+
+.yogi-anim-theatre-transition {
+  transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ========================================================
+   12. DOUBLE-TAP RIPPLE & SEEK FEEDBACK
+   ======================================================== */
+@keyframes yogi-doubletap-ripple {
+  0% {
+    opacity: 0.85;
+    transform: scale(0.65);
+  }
+  60% {
+    opacity: 0.95;
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes yogi-seek-feedback {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.9);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0) scale(1.05);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
+  }
+}
+
+.yogi-anim-doubletap-ripple {
+  animation: yogi-doubletap-ripple 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.yogi-anim-fwd-feedback,
+.yogi-anim-back-feedback {
+  animation: yogi-seek-feedback 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ========================================================
+   13. GESTURE HUD (VOLUME & BRIGHTNESS)
+   ======================================================== */
+@keyframes yogi-hud-pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+  25% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.04);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+.yogi-anim-gesture-hud {
+  animation: yogi-hud-pop 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ========================================================
+   14. WATERMARK MOVEMENT & TRANSITIONS
+   ======================================================== */
+@keyframes yogi-watermark-move {
+  0% {
+    opacity: 0.28;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.12;
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 0.28;
+    transform: translateY(0);
+  }
+}
+
+@keyframes yogi-watermark-drift {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.02); }
+}
+
+.yogi-anim-watermark {
+  transition: top 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+              left 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+              right 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+              bottom 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+              opacity 0.6s ease,
+              transform 0.6s ease;
+}
+
+.yogi-anim-watermark-drift {
+  animation: yogi-watermark-drift 6s ease-in-out infinite;
+}
+
+/* ========================================================
+   15. TOOLTIP ENTRANCE
+   ======================================================== */
+@keyframes yogi-tooltip-enter {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 6px) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.yogi-anim-tooltip-enter {
+  animation: yogi-tooltip-enter 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ========================================================
+   16. ERROR NOTIFICATION BOUNCE
+   ======================================================== */
+@keyframes yogi-error-bounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.88) translateY(12px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03) translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.yogi-anim-error-bounce {
+  animation: yogi-error-bounce 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ========================================================
+   17. SELECTION FEEDBACK (QUALITY, SPEED, CHAPTER)
+   ======================================================== */
+@keyframes yogi-select-feedback {
+  0% { background-color: rgba(255, 255, 255, 0.08); }
+  40% { background-color: var(--accent-subtle, rgba(99, 102, 241, 0.35)); }
+  100% { background-color: rgba(255, 255, 255, 0.08); }
+}
+
+.yogi-anim-select-feedback,
+.yogi-anim-speed-feedback,
+.yogi-anim-chapter-feedback {
+  animation: yogi-select-feedback 0.35s ease;
+}
+
+/* ========================================================
+   18. SCREENSHOT FLASH & PIP FEEDBACK
+   ======================================================== */
+@keyframes yogi-screenshot-flash {
+  0% { opacity: 0.95; }
+  100% { opacity: 0; }
+}
+
+@keyframes yogi-pip-feedback {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.94); }
+  100% { transform: scale(1); }
+}
+
+.yogi-anim-screenshot-flash {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  pointer-events: none;
+  z-index: 999;
+  animation: yogi-screenshot-flash 0.4s ease-out forwards;
+}
+
+.yogi-anim-pip-feedback {
+  animation: yogi-pip-feedback 0.3s ease;
+}
+
+/* ========================================================
+   19. HUD PULSE
+   ======================================================== */
+@keyframes yogi-hud-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.yogi-anim-hud-pulse {
+  animation: yogi-hud-pulse 0.3s ease-in-out;
+}
+
+/* ========================================================
+   20. PREFERS-REDUCED-MOTION SUPPORT
+   ======================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root {
+  --yogi-font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --yogi-glass-bg: rgba(18, 22, 34, 0.68);
+  --yogi-glass-border: rgba(255, 255, 255, 0.16);
+  --yogi-glass-blur: 20px;
+  --yogi-accent: #8b9cff;
+  --yogi-accent-rgb: 139, 156, 255;
+  --yogi-primary: #ffffff;
+  --yogi-text: #ffffff;
+  --yogi-panel-bg: rgba(14, 17, 27, 0.88);
+  --yogi-border-radius: 20px;
+  --yogi-control-size: 42px;
+  --yogi-transition-speed: 0.28s;
+}
+
+/* =========================================
+   PLAYER CONTAINER
+   ========================================= */
+.yogi-ply {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  background: #000000;
+  border-radius: var(--yogi-border-radius);
+  overflow: hidden;
+  font-family: var(--yogi-font-family);
+  color: var(--yogi-text);
+  user-select: none;
+  -webkit-user-select: none;
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.5);
+  display: block;
+  line-height: 1.4;
+  box-sizing: border-box;
+}
+
+.yogi-ply *,
+.yogi-ply *::before,
+.yogi-ply *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Video element */
+.yogi-ply video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: #000000;
+  outline: none;
+}
+
+/* External Frame Adapter (YouTube / Vimeo) */
+.yogi-ply-external-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.yogi-ply-external-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Theatre Mode */
+.yogi-ply.yogi-ply-theatre {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 80vh !important;
+  border-radius: 0 !important;
+  z-index: 9999;
+}
+
+/* Fullscreen Mode */
+.yogi-ply:fullscreen,
+.yogi-ply:-webkit-full-screen {
+  width: 100vw !important;
+  height: 100vh !important;
+  border-radius: 0 !important;
+  max-width: none !important;
+}
+
+/* =========================================
+   SPECIAL CREATOR WATERMARK SYSTEM
+   "Created By Shiv Yogi"
+   ========================================= */
+.yogi-ply-watermark {
+  position: absolute;
+  z-index: 8;
+  pointer-events: none;
+  color: #ffffff;
+  opacity: 0.28;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  background: transparent;
+  border: none;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.75);
+  white-space: nowrap;
+  user-select: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+@media (max-width: 640px) {
+  .yogi-ply-watermark {
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   SUBTITLES SYSTEM
+   ========================================= */
+.yogi-ply-subtitles {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  pointer-events: none;
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+  transition: bottom 0.28s ease, top 0.28s ease;
+}
+
+.yogi-ply-subtitles-bottom {
+  bottom: 84px;
+}
+
+.yogi-ply-controls-hidden .yogi-ply-subtitles-bottom {
+  bottom: 30px;
+}
+
+.yogi-ply-subtitles-top {
+  top: 30px;
+}
+
+.yogi-ply-subtitle-cue {
+  display: inline-block;
+  background: rgba(10, 12, 18, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  line-height: 1.45;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.yogi-ply-subtitles-small .yogi-ply-subtitle-cue {
+  font-size: 13px;
+}
+
+.yogi-ply-subtitles-medium .yogi-ply-subtitle-cue {
+  font-size: 17px;
+}
+
+.yogi-ply-subtitles-large .yogi-ply-subtitle-cue {
+  font-size: 22px;
+}
+
+/* =========================================
+   CENTER OVERLAYS
+   ========================================= */
+/* Big Play Button */
+.yogi-ply-big-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: var(--yogi-glass-bg);
+  backdrop-filter: blur(var(--yogi-glass-blur)) saturate(190%);
+  -webkit-backdrop-filter: blur(var(--yogi-glass-blur)) saturate(190%);
+  border: 1.5px solid var(--yogi-glass-border);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.25), 0 12px 32px 0 rgba(0, 0, 0, 0.45);
+  color: var(--yogi-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.25s ease, background 0.2s;
+}
+
+.yogi-ply-big-play svg {
+  width: 34px;
+  height: 34px;
+  margin-left: 4px;
+  stroke: var(--yogi-primary);
+}
+
+.yogi-ply-big-play:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.yogi-ply-big-play:active {
+  transform: translate(-50%, -50%) scale(0.96);
+}
+
+.yogi-ply-big-play-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.85);
+}
+
+/* Buffering / Loading Spinner */
+.yogi-ply-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 11;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.yogi-ply-spinner-visible {
+  opacity: 1;
+}
+
+.yogi-ply-spinner svg {
+  width: 44px;
+  height: 44px;
+  color: var(--yogi-accent);
+  animation: yogi-spin 0.85s linear infinite;
+}
+
+@keyframes yogi-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Skip Intro / Outro Badges */
+.yogi-ply-skip-badge {
+  position: absolute;
+  bottom: 86px;
+  right: 24px;
+  z-index: 12;
+  background: var(--yogi-glass-bg);
+  backdrop-filter: blur(var(--yogi-glass-blur));
+  -webkit-backdrop-filter: blur(var(--yogi-glass-blur));
+  border: 1px solid var(--yogi-glass-border);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.yogi-ply-skip-badge:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: scale(1.04);
+}
+
+.yogi-ply-skip-badge svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Video Ended Screen */
+.yogi-ply-ended-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 14;
+  background: rgba(5, 7, 12, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.yogi-ply-ended-card {
+  text-align: center;
+  padding: 32px 40px;
+  background: var(--yogi-glass-bg);
+  border: 1px solid var(--yogi-glass-border);
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.yogi-ply-ended-brand {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--yogi-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.yogi-ply-ended-creator {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 24px;
+}
+
+.yogi-ply-ended-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.yogi-ply-ended-actions .yogi-ply-btn {
+  width: auto;
+  border-radius: 20px;
+  padding: 10px 20px;
+  gap: 8px;
+}
+
+/* Error & Compatibility Screen */
+.yogi-ply-error-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 14;
+  background: rgba(8, 10, 16, 0.86);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.yogi-ply-error-card {
+  text-align: center;
+  max-width: 440px;
+  padding: 28px 32px;
+  background: var(--yogi-panel-bg);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.yogi-ply-error-icon {
+  margin-bottom: 12px;
+}
+
+.yogi-ply-error-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #f87171;
+  margin-bottom: 8px;
+}
+
+.yogi-ply-error-msg {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 8px;
+  line-height: 1.45;
+}
+
+.yogi-ply-error-advice {
+  font-size: 12px;
+  color: #c7d2fe;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin: 8px 0 16px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.yogi-ply-error-actions .yogi-ply-btn {
+  width: auto;
+  border-radius: 20px;
+  padding: 8px 18px;
+  gap: 8px;
+}
+
+/* =========================================
+   FLOATING LIQUID GLASS CONTROLS DOCK
+   ========================================= */
+.yogi-ply-controls {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 15;
+  background: var(--yogi-glass-bg);
+  backdrop-filter: blur(var(--yogi-glass-blur)) saturate(190%) contrast(100%);
+  -webkit-backdrop-filter: blur(var(--yogi-glass-blur)) saturate(190%);
+  border: 1px solid var(--yogi-glass-border);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.2), 0 12px 36px 0 rgba(0, 0, 0, 0.45);
+  border-radius: 22px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--yogi-transition-speed) ease, transform var(--yogi-transition-speed) ease;
+}
+
+.yogi-ply-controls-hidden .yogi-ply-controls {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+}
+
+/* Controls row */
+.yogi-ply-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.yogi-ply-controls-left,
+.yogi-ply-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Circular glass buttons */
+.yogi-ply-btn {
+  width: var(--yogi-control-size);
+  height: var(--yogi-control-size);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--yogi-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  font-family: inherit;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.yogi-ply-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.yogi-ply-btn:active {
+  transform: scale(0.96);
+}
+
+.yogi-ply-btn:focus-visible {
+  box-shadow: 0 0 0 2px var(--yogi-accent);
+}
+
+.yogi-ply-btn-active {
+  background: rgba(var(--yogi-accent-rgb), 0.35);
+  border-color: var(--yogi-accent);
+  color: #ffffff;
+}
+
+.yogi-ply-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* =========================================
+   PROGRESS SEEKBAR COMPONENT
+   ========================================= */
+.yogi-ply-progress-container {
+  position: relative;
+  width: 100%;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  touch-action: none;
+  outline: none;
+}
+
+.yogi-ply-progress-track {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 4px;
+  overflow: visible;
+  transition: height 0.15s ease;
+}
+
+.yogi-ply-progress-container:hover .yogi-ply-progress-track,
+.yogi-ply-progress-dragging .yogi-ply-progress-track {
+  height: 8px;
+}
+
+.yogi-ply-progress-buffered {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: rgba(255, 255, 255, 0.26);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.yogi-ply-progress-played {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--yogi-accent) 0%, #a5b4fc 100%);
+  border-radius: 4px;
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(var(--yogi-accent-rgb), 0.5);
+}
+
+.yogi-ply-progress-chapters {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.yogi-ply-chapter-tick {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.yogi-ply-progress-thumb {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid var(--yogi-accent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 3;
+}
+
+.yogi-ply-progress-container:hover .yogi-ply-progress-thumb,
+.yogi-ply-progress-dragging .yogi-ply-progress-thumb {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Hover preview tooltip */
+.yogi-ply-progress-tooltip {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  transform: translateX(-50%);
+  background: var(--yogi-panel-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--yogi-glass-border);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 5;
+}
+
+.yogi-ply-progress-tooltip.yogi-ply-tooltip-visible {
+  opacity: 1;
+}
+
+/* =========================================
+   VOLUME CONTROL COMPONENT
+   ========================================= */
+.yogi-ply-volume-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.yogi-ply-volume-slider {
+  width: 0;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  opacity: 0;
+  transition: width 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.2s ease;
+  outline: none;
+}
+
+.yogi-ply-volume-group:hover .yogi-ply-volume-slider,
+.yogi-ply-volume-slider:focus-visible {
+  width: 68px;
+  opacity: 1;
+  margin-left: 2px;
+}
+
+.yogi-ply-volume-track {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 3px;
+}
+
+.yogi-ply-volume-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 3px;
+}
+
+.yogi-ply-volume-thumb {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================
+   TIME DISPLAY
+   ========================================= */
+.yogi-ply-time-display {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  margin-left: 4px;
+}
+
+.yogi-ply-time-separator {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* =========================================
+   SETTINGS PANEL (LIQUID GLASS)
+   ========================================= */
+.yogi-ply-settings-panel {
+  position: absolute;
+  right: 16px;
+  bottom: 84px;
+  width: 270px;
+  max-height: 380px;
+  background: var(--yogi-panel-bg);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid var(--yogi-glass-border);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 8px;
+  z-index: 20;
+  display: none;
+  flex-direction: column;
+  overflow-y: auto;
+  opacity: 0;
+  transform: translateY(10px) scale(0.96);
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.yogi-ply-settings-panel.yogi-ply-settings-open {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.yogi-ply-menu-header {
+  display: flex;
+  align-items: center;
+  padding: 8px 6px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 6px;
+}
+
+.yogi-ply-menu-back {
+  background: transparent;
+  border: none;
+  color: var(--yogi-primary);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-right: 8px;
+  transition: background 0.15s ease;
+}
+
+.yogi-ply-menu-back:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.yogi-ply-menu-back svg {
+  width: 18px;
+  height: 18px;
+}
+
+.yogi-ply-menu-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.yogi-ply-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.yogi-ply-menu-row,
+.yogi-ply-menu-option {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 10px 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  transition: background 0.15s ease;
+  outline: none;
+}
+
+.yogi-ply-menu-row:hover,
+.yogi-ply-menu-option:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.yogi-ply-menu-row:focus-visible,
+.yogi-ply-menu-option:focus-visible {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.yogi-ply-menu-row-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.yogi-ply-menu-row-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+}
+
+.yogi-ply-menu-icon svg {
+  width: 18px;
+  height: 18px;
+  color: var(--yogi-accent);
+}
+
+.yogi-ply-menu-arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+.yogi-ply-option-active {
+  color: var(--yogi-accent);
+  font-weight: 600;
+  background: rgba(var(--yogi-accent-rgb), 0.12);
+}
+
+.yogi-ply-check svg {
+  width: 16px;
+  height: 16px;
+  color: var(--yogi-accent);
+}
+
+.yogi-ply-menu-sublabel {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: rgba(255, 255, 255, 0.45);
+  padding: 10px 12px 4px;
+}
+
+/* Toggle switch */
+.yogi-ply-toggle-switch {
+  width: 36px;
+  height: 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+.yogi-ply-toggle-switch::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.yogi-ply-switch-on {
+  background: var(--yogi-accent);
+}
+
+.yogi-ply-switch-on::after {
+  transform: translateX(16px);
+}
+
+/* =========================================
+   PLAYLIST DRAWER COMPONENT
+   ========================================= */
+.yogi-ply-playlist-drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  max-width: 85%;
+  background: var(--yogi-panel-bg);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border-left: 1px solid var(--yogi-glass-border);
+  z-index: 22;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.yogi-ply-playlist-open {
+  transform: translateX(0);
+}
+
+.yogi-ply-playlist-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.yogi-ply-playlist-title {
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.yogi-ply-playlist-title svg {
+  width: 20px;
+  height: 20px;
+  color: var(--yogi-accent);
+}
+
+.yogi-ply-playlist-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.yogi-ply-playlist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid transparent;
+  color: #ffffff;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.yogi-ply-playlist-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.yogi-ply-item-active {
+  background: rgba(var(--yogi-accent-rgb), 0.16);
+  border-color: var(--yogi-accent);
+}
+
+.yogi-ply-playlist-thumb {
+  position: relative;
+  width: 64px;
+  height: 40px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #111;
+  flex-shrink: 0;
+}
+
+.yogi-ply-playlist-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.yogi-ply-thumb-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #222;
+}
+
+.yogi-ply-thumb-index {
+  position: absolute;
+  bottom: 2px;
+  right: 4px;
+  font-size: 9px;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.yogi-ply-playlist-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.yogi-ply-item-title {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.yogi-ply-item-duration {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* =========================================
+   MOBILE GESTURES & HUD BADGE OVERLAYS
+   ========================================= */
+.yogi-ply-gesture-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Double-tap ripple animation */
+.yogi-ply-seek-ripple {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.yogi-ply-seek-ripple-left {
+  left: 0;
+}
+
+.yogi-ply-seek-ripple-right {
+  right: 0;
+}
+
+.yogi-ply-ripple-circle {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  animation: yogi-ripple 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes yogi-ripple {
+  0% { transform: scale(0.4); opacity: 0.8; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.yogi-ply-ripple-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.yogi-ply-ripple-content svg {
+  width: 38px;
+  height: 38px;
+}
+
+/* HUD Badge for Volume / Brightness */
+.yogi-ply-hud-badge {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background: var(--yogi-panel-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--yogi-glass-border);
+  border-radius: 20px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 25;
+}
+
+.yogi-ply-hud-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.yogi-ply-hud-icon svg {
+  width: 22px;
+  height: 22px;
+  color: var(--yogi-accent);
+}
+
+.yogi-ply-hud-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.yogi-ply-hud-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.yogi-ply-hud-bar {
+  width: 100px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.yogi-ply-hud-bar-fill {
+  height: 100%;
+  background: var(--yogi-accent);
+  border-radius: 2px;
+}
+
+.yogi-ply-hud-val {
+  font-size: 13px;
+  font-weight: 700;
+  min-width: 32px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* =========================================
+   THEMES & STYLING VARIANTS
+   ========================================= */
+/* Dark Theme */
+.yogi-ply-theme-dark {
+  --yogi-glass-bg: rgba(12, 14, 20, 0.85);
+  --yogi-glass-border: rgba(255, 255, 255, 0.1);
+  --yogi-panel-bg: rgba(10, 11, 16, 0.94);
+  --yogi-accent: #6366f1;
+  --yogi-accent-rgb: 99, 102, 241;
+}
+
+/* Light Theme */
+.yogi-ply-theme-light {
+  --yogi-glass-bg: rgba(245, 247, 252, 0.78);
+  --yogi-glass-border: rgba(0, 0, 0, 0.12);
+  --yogi-panel-bg: rgba(255, 255, 255, 0.94);
+  --yogi-accent: #2563eb;
+  --yogi-accent-rgb: 37, 99, 235;
+  --yogi-primary: #0f172a;
+  --yogi-text: #0f172a;
+}
+
+.yogi-ply-theme-light .yogi-ply-btn {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #0f172a;
+}
+
+.yogi-ply-theme-light .yogi-ply-time-display {
+  color: rgba(15, 23, 42, 0.88);
+}
+
+.yogi-ply-theme-light .yogi-ply-time-separator {
+  color: rgba(15, 23, 42, 0.4);
+}
+
+.yogi-ply-theme-light .yogi-ply-menu-title,
+.yogi-ply-theme-light .yogi-ply-menu-row,
+.yogi-ply-theme-light .yogi-ply-menu-option {
+  color: #0f172a;
+}
+
+.yogi-ply-theme-light .yogi-ply-menu-row:hover,
+.yogi-ply-theme-light .yogi-ply-menu-option:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* OLED Pure Black Theme */
+.yogi-ply-theme-oled {
+  --yogi-glass-bg: rgba(0, 0, 0, 0.92);
+  --yogi-glass-border: rgba(255, 255, 255, 0.22);
+  --yogi-panel-bg: rgba(0, 0, 0, 0.98);
+  --yogi-accent: #38bdf8;
+  --yogi-accent-rgb: 56, 189, 248;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (MOBILE & DESKTOP)
+   ========================================= */
+@media (max-width: 640px) {
+  .yogi-ply-controls {
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    padding: 8px 10px;
+    gap: 6px;
+    border-radius: 18px;
+  }
+
+  :root {
+    --yogi-control-size: 38px;
+  }
+
+  .yogi-ply-btn-back10,
+  .yogi-ply-btn-fwd10,
+  .yogi-ply-btn-screenshot,
+  .yogi-ply-btn-theatre,
+  .yogi-ply-btn-pip {
+    display: none !important;
+  }
+
+  .yogi-ply-time-display {
+    font-size: 11px;
+  }
+
+  .yogi-ply-settings-panel {
+    right: 8px;
+    bottom: 74px;
+    width: 250px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .yogi-ply,
+  .yogi-ply * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Playback Information Rows */
+.yogi-ply-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  cursor: default;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.yogi-ply-info-row:hover {
+  background: transparent !important;
+}
+
+/* Backdrop Filter Fallback for unsupported browsers */
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .yogi-ply-controls,
+  .yogi-ply-settings-panel,
+  .yogi-ply-playlist-drawer,
+  .yogi-ply-gesture-hud {
+    background: rgba(18, 22, 34, 0.95) !important;
+  }
+  .yogi-ply-theme-light .yogi-ply-controls,
+  .yogi-ply-theme-light .yogi-ply-settings-panel,
+  .yogi-ply-theme-light .yogi-ply-playlist-drawer {
+    background: rgba(240, 243, 250, 0.96) !important;
+  }
+}
+
+/* =========================================
+   CINEMATIC TOP UTILITY BAR
+   ========================================= */
+.yogi-ply-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0%, transparent 100%);
+  pointer-events: auto;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.yogi-ply-controls-hidden .yogi-ply-top-bar {
+  opacity: 0;
+  transform: translateY(-16px);
+  pointer-events: none;
+}
+
+.yogi-ply-top-left,
+.yogi-ply-top-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.yogi-ply-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.2px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 240px;
+}
+
+.yogi-ply-meta-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: var(--yogi-glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--yogi-glass-border);
+  color: var(--yogi-accent);
+  letter-spacing: 0.5px;
+}
+
+/* =========================================
+   CINEMATIC MOBILE CENTER CONTROLS
+   - Center Big Play/Pause
+   - Left 10s Rewind
+   - Right 10s Forward
+   ========================================= */
+.yogi-ply-center-controls {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  z-index: 10;
+  pointer-events: auto;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.yogi-ply-controls-hidden .yogi-ply-center-controls {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.92);
+  pointer-events: none;
+}
+
+.yogi-ply-center-btn {
+  background: var(--yogi-glass-bg);
+  backdrop-filter: blur(var(--yogi-glass-blur)) saturate(190%);
+  -webkit-backdrop-filter: blur(var(--yogi-glass-blur)) saturate(190%);
+  border: 1.5px solid var(--yogi-glass-border);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.2), 0 10px 28px rgba(0, 0, 0, 0.45);
+  color: var(--yogi-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.2s, box-shadow 0.2s;
+}
+
+.yogi-ply-center-btn:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 18px var(--yogi-accent-rgb, rgba(99, 102, 241, 0.4));
+}
+
+.yogi-ply-center-btn:active {
+  transform: scale(0.94);
+}
+
+.yogi-ply-big-play {
+  width: 72px;
+  height: 72px;
+}
+
+.yogi-ply-big-play svg {
+  width: 32px;
+  height: 32px;
+}
+
+.yogi-ply-center-rewind,
+.yogi-ply-center-forward {
+  width: 52px;
+  height: 52px;
+}
+
+.yogi-ply-center-rewind svg,
+.yogi-ply-center-forward svg {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 640px) {
+  .yogi-ply-big-play {
+    width: 64px;
+    height: 64px;
+  }
+  .yogi-ply-center-rewind,
+  .yogi-ply-center-forward {
+    width: 46px;
+    height: 46px;
+  }
+  .yogi-ply-center-controls {
+    gap: 20px;
+  }
+}
+
+

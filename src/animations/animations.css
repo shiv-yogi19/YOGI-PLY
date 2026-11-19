@@ -1,0 +1,583 @@
+/**
+ * Yogi_PLY - 40+ Cinematic Liquid Glass Animations & Transitions
+ * Created By Shiv Yogi
+ * Tagline: One Player. Every Website.
+ */
+
+/* ========================================================
+   1. PLAYER ENTRANCE & EXIT
+   ======================================================== */
+@keyframes yogi-player-enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.97) translateY(8px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes yogi-player-exit {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+    filter: blur(6px);
+  }
+}
+
+.yogi-anim-player-enter {
+  animation: yogi-player-enter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.yogi-anim-player-exit {
+  animation: yogi-player-exit 0.4s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+/* ========================================================
+   2. BUTTON TAP & PRESS FEEDBACK
+   ======================================================== */
+@keyframes yogi-play-tap {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.86); }
+  75% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+@keyframes yogi-pause-tap {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.9); }
+  80% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+@keyframes yogi-btn-press {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.92); }
+  100% { transform: scale(1); }
+}
+
+@keyframes yogi-btn-glow {
+  0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+  50% { box-shadow: 0 0 20px 4px var(--accent-glow, rgba(99, 102, 241, 0.45)); }
+  100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+}
+
+.yogi-anim-play-tap {
+  animation: yogi-play-tap 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.yogi-anim-pause-tap {
+  animation: yogi-pause-tap 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.yogi-anim-press {
+  animation: yogi-btn-press 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.yogi-anim-glow {
+  animation: yogi-btn-glow 0.8s ease-in-out;
+}
+
+/* ========================================================
+   3. CONTROL DOCK ENTRANCE & AUTO-HIDE
+   ======================================================== */
+@keyframes yogi-dock-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes yogi-dock-exit {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+    pointer-events: none;
+  }
+}
+
+.yogi-anim-dock-enter {
+  animation: yogi-dock-enter 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.yogi-anim-dock-exit {
+  animation: yogi-dock-exit 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ========================================================
+   4. THREE-DOT BUTTON & MORE FEATURES MENU
+   ======================================================== */
+@keyframes yogi-more-tap {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(90deg) scale(1.15); }
+  100% { transform: rotate(90deg) scale(1); }
+}
+
+@keyframes yogi-more-reset {
+  0% { transform: rotate(90deg) scale(1); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+@keyframes yogi-menu-expand {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.92);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes yogi-menu-collapse {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.94);
+    filter: blur(6px);
+  }
+}
+
+.yogi-anim-more-tap {
+  animation: yogi-more-tap 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.yogi-anim-more-reset {
+  animation: yogi-more-reset 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.yogi-anim-menu-expand {
+  animation: yogi-menu-expand 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.yogi-anim-menu-collapse {
+  animation: yogi-menu-collapse 0.24s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+/* ========================================================
+   5. SETTINGS PANEL ENTRANCE & EXIT
+   ======================================================== */
+@keyframes yogi-panel-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.94);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes yogi-panel-exit {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.94);
+    filter: blur(6px);
+  }
+}
+
+.yogi-anim-panel-enter {
+  animation: yogi-panel-enter 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.yogi-anim-panel-exit {
+  animation: yogi-panel-exit 0.25s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+/* ========================================================
+   6. SEEKBAR INTERACTION & HOVER PREVIEW
+   ======================================================== */
+@keyframes yogi-seek-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.35); box-shadow: 0 0 12px var(--accent); }
+  100% { transform: scale(1.2); }
+}
+
+@keyframes yogi-seek-preview-enter {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 6px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.yogi-anim-seek-active {
+  animation: yogi-seek-pulse 0.25s ease-out forwards;
+}
+
+.yogi-anim-seek-preview {
+  animation: yogi-seek-preview-enter 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ========================================================
+   7. VOLUME SLIDER TRANSITION
+   ======================================================== */
+@keyframes yogi-volume-slide {
+  0% {
+    width: 0;
+    opacity: 0;
+    transform: scaleX(0.7);
+  }
+  100% {
+    width: 76px;
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+.yogi-anim-volume-slide {
+  animation: yogi-volume-slide 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ========================================================
+   8. LOADING SPINNER & BUFFERING ANIMATION
+   ======================================================== */
+@keyframes yogi-spinner-rot {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes yogi-buffering-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.04);
+  }
+}
+
+.yogi-anim-spinner {
+  animation: yogi-spinner-rot 0.9s linear infinite;
+}
+
+.yogi-anim-buffering {
+  animation: yogi-buffering-pulse 1.4s ease-in-out infinite;
+}
+
+/* ========================================================
+   9. SUBTITLES ENTRANCE & EXIT
+   ======================================================== */
+@keyframes yogi-sub-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes yogi-sub-exit {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.yogi-anim-sub-enter {
+  animation: yogi-sub-enter 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.yogi-anim-sub-exit {
+  animation: yogi-sub-exit 0.18s ease-in forwards;
+}
+
+/* ========================================================
+   10. PLAYLIST DRAWER ENTRANCE & EXIT
+   ======================================================== */
+@keyframes yogi-playlist-enter {
+  0% {
+    transform: translateX(100%);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes yogi-playlist-exit {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.yogi-anim-playlist-enter {
+  animation: yogi-playlist-enter 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.yogi-anim-playlist-exit {
+  animation: yogi-playlist-exit 0.3s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+/* ========================================================
+   11. THEME, FULLSCREEN & THEATRE TRANSITION
+   ======================================================== */
+.yogi-anim-theme-transition {
+  transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.yogi-anim-fullscreen-enter {
+  transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease;
+}
+
+.yogi-anim-theatre-transition {
+  transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ========================================================
+   12. DOUBLE-TAP RIPPLE & SEEK FEEDBACK
+   ======================================================== */
+@keyframes yogi-doubletap-ripple {
+  0% {
+    opacity: 0.85;
+    transform: scale(0.65);
+  }
+  60% {
+    opacity: 0.95;
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes yogi-seek-feedback {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.9);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0) scale(1.05);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
+  }
+}
+
+.yogi-anim-doubletap-ripple {
+  animation: yogi-doubletap-ripple 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.yogi-anim-fwd-feedback,
+.yogi-anim-back-feedback {
+  animation: yogi-seek-feedback 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ========================================================
+   13. GESTURE HUD (VOLUME & BRIGHTNESS)
+   ======================================================== */
+@keyframes yogi-hud-pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+  25% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.04);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+.yogi-anim-gesture-hud {
+  animation: yogi-hud-pop 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ========================================================
+   14. WATERMARK MOVEMENT & TRANSITIONS
+   ======================================================== */
+@keyframes yogi-watermark-move {
+  0% {
+    opacity: 0.28;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.12;
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 0.28;
+    transform: translateY(0);
+  }
+}
+
+@keyframes yogi-watermark-drift {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.02); }
+}
+
+.yogi-anim-watermark {
+  transition: top 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+              left 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+              right 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+              bottom 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+              opacity 0.6s ease,
+              transform 0.6s ease;
+}
+
+.yogi-anim-watermark-drift {
+  animation: yogi-watermark-drift 6s ease-in-out infinite;
+}
+
+/* ========================================================
+   15. TOOLTIP ENTRANCE
+   ======================================================== */
+@keyframes yogi-tooltip-enter {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 6px) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.yogi-anim-tooltip-enter {
+  animation: yogi-tooltip-enter 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ========================================================
+   16. ERROR NOTIFICATION BOUNCE
+   ======================================================== */
+@keyframes yogi-error-bounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.88) translateY(12px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03) translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.yogi-anim-error-bounce {
+  animation: yogi-error-bounce 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ========================================================
+   17. SELECTION FEEDBACK (QUALITY, SPEED, CHAPTER)
+   ======================================================== */
+@keyframes yogi-select-feedback {
+  0% { background-color: rgba(255, 255, 255, 0.08); }
+  40% { background-color: var(--accent-subtle, rgba(99, 102, 241, 0.35)); }
+  100% { background-color: rgba(255, 255, 255, 0.08); }
+}
+
+.yogi-anim-select-feedback,
+.yogi-anim-speed-feedback,
+.yogi-anim-chapter-feedback {
+  animation: yogi-select-feedback 0.35s ease;
+}
+
+/* ========================================================
+   18. SCREENSHOT FLASH & PIP FEEDBACK
+   ======================================================== */
+@keyframes yogi-screenshot-flash {
+  0% { opacity: 0.95; }
+  100% { opacity: 0; }
+}
+
+@keyframes yogi-pip-feedback {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.94); }
+  100% { transform: scale(1); }
+}
+
+.yogi-anim-screenshot-flash {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  pointer-events: none;
+  z-index: 999;
+  animation: yogi-screenshot-flash 0.4s ease-out forwards;
+}
+
+.yogi-anim-pip-feedback {
+  animation: yogi-pip-feedback 0.3s ease;
+}
+
+/* ========================================================
+   19. HUD PULSE
+   ======================================================== */
+@keyframes yogi-hud-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.yogi-anim-hud-pulse {
+  animation: yogi-hud-pulse 0.3s ease-in-out;
+}
+
+/* ========================================================
+   20. PREFERS-REDUCED-MOTION SUPPORT
+   ======================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

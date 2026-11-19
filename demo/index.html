@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yogi_PLY — Universal Liquid Glass Video Player Library</title>
+  <meta name="description" content="One Player. Every Website. A premium universal HTML5, HLS, DASH, and embed video player library created by Shiv Yogi.">
+  <link rel="stylesheet" href="../dist/yogi-ply.min.css">
+  <link rel="stylesheet" href="./demo.css">
+</head>
+<body>
+
+  <div class="demo-container">
+
+    <!-- Navbar -->
+    <header class="demo-nav">
+      <a href="#" class="demo-logo">
+        <div class="demo-logo-icon">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="6 4 20 12 6 20 6 4" fill="currentColor" fill-opacity="0.3"/>
+          </svg>
+        </div>
+        <div class="demo-logo-text">Yogi_PLY</div>
+        <span class="demo-version-tag">v1.0.0</span>
+      </a>
+
+      <div class="demo-nav-links">
+        <a href="#demo" class="demo-nav-link">Live Player</a>
+        <a href="#playground" class="demo-nav-link">Playground</a>
+        <a href="#multi" class="demo-nav-link">Multi-Instance</a>
+        <a href="../studio/index.html" class="demo-nav-link" style="color: var(--accent); font-weight: 700;">Yogi_PLY Studio ↗</a>
+        <a href="#integration" class="demo-nav-link">Embed & CDN</a>
+        <span class="demo-creator-badge">Created By Shiv Yogi</span>
+      </div>
+    </header>
+
+    <!-- Hero Header -->
+    <section class="demo-hero" id="demo">
+      <div class="demo-hero-tagline">One Player. Every Website.</div>
+      <h1 class="demo-hero-title">Universal <span>Liquid Glass</span> Video Player</h1>
+      <p class="demo-hero-desc">
+        A lightweight, framework-agnostic HTML5 video player library featuring Apple-inspired frosted glass controls, dynamic creator watermarking, adaptive HLS & DASH streaming, multi-language subtitles, and responsive mobile gestures.
+      </p>
+    </section>
+
+    <!-- Stream / Media Switcher Pills -->
+    <div class="demo-source-bar">
+      <button class="demo-pill demo-pill-active" data-source="bbb">🎬 Big Buck Bunny (MP4)</button>
+      <button class="demo-pill" data-source="sintel">⚔️ Sintel Movie (1080p)</button>
+      <button class="demo-pill" data-source="webm">🌐 WebM Format</button>
+      <button class="demo-pill" data-source="hls">⚡ Tears of Steel (HLS .m3u8)</button>
+      <button class="demo-pill" data-source="dash">📡 Akamai Test (DASH .mpd)</button>
+      <button class="demo-pill" data-source="youtube">▶️ YouTube Adapter</button>
+      <button class="demo-pill" data-source="vimeo">🎞️ Vimeo Adapter</button>
+      <button class="demo-pill" data-source="unsupported">⚠️ Unsupported (AVI Fallback)</button>
+    </div>
+
+    <!-- Main Player Stage -->
+    <section class="demo-player-stage">
+      <div id="hero-player" class="yogi-ply"></div>
+    </section>
+
+    <!-- Interactive Dashboard & Controls -->
+    <section class="demo-dashboard" id="playground">
+
+      <!-- Card 1: Permanent Watermark Signature -->
+      <div class="demo-card">
+        <h3 class="demo-card-title">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+          Watermark Signature
+        </h3>
+        <div style="background: rgba(99, 102, 241, 0.12); padding: 8px 12px; border-radius: 8px; margin-bottom: 12px; border: 1px solid rgba(99, 102, 241, 0.25);">
+          <span style="color: var(--accent); font-weight: 700;">Created By Shiv Yogi</span>
+          <span style="font-size: 11px; opacity: 0.8; display: block; margin-top: 2px;">Permanent Creator Branding (Immutable)</span>
+        </div>
+        <div class="demo-control-group">
+          <div class="demo-field">
+            <label for="wm-anim">Animation Style</label>
+            <select id="wm-anim" class="demo-input" style="width: 150px;">
+              <option value="fade-slide" selected>Fade & Slide</option>
+              <option value="fade">Smooth Fade</option>
+              <option value="slide">Pure Slide</option>
+              <option value="glow">Glow Transition</option>
+            </select>
+          </div>
+          <div class="demo-field">
+            <label for="wm-opacity">Opacity: <span id="wm-opacity-val">28%</span></label>
+            <input type="range" id="wm-opacity" min="0.15" max="0.85" step="0.05" value="0.28" style="accent-color: var(--accent);">
+          </div>
+          <div class="demo-field">
+            <label for="wm-interval">Movement Interval</label>
+            <select id="wm-interval" class="demo-input" style="width: 140px;">
+              <option value="6000">6 Seconds (Fast)</option>
+              <option value="12000" selected>12 Seconds</option>
+              <option value="18000">18 Seconds</option>
+              <option value="25000">25 Seconds</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Themes & Appearance -->
+      <div class="demo-card">
+        <h3 class="demo-card-title">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/>
+          </svg>
+          Themes & Glass Aesthetics
+        </h3>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+          Dynamic frosted glass styling with specular highlights and native blur.
+        </p>
+        <div class="demo-btn-group">
+          <button class="demo-action-btn active" data-theme-btn="liquid-glass">Liquid Glass</button>
+          <button class="demo-action-btn" data-theme-btn="dark">Cinematic Dark</button>
+          <button class="demo-action-btn" data-theme-btn="light">Frosted Light</button>
+          <button class="demo-action-btn" data-theme-btn="cinematic-oled">Pure OLED</button>
+        </div>
+      </div>
+
+      <!-- Card 3: Playback & Public API -->
+      <div class="demo-card">
+        <h3 class="demo-card-title">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          JavaScript Public API
+        </h3>
+        <div class="demo-control-group">
+          <div>
+            <span style="font-size: 12px; color: var(--text-muted); display: block; margin-bottom: 6px;">Playback Speed:</span>
+            <div class="demo-btn-group">
+              <button class="demo-action-btn" data-speed-btn="0.5">0.5x</button>
+              <button class="demo-action-btn active" data-speed-btn="1">1.0x</button>
+              <button class="demo-action-btn" data-speed-btn="1.5">1.5x</button>
+              <button class="demo-action-btn" data-speed-btn="2">2.0x</button>
+            </div>
+          </div>
+          <div>
+            <span style="font-size: 12px; color: var(--text-muted); display: block; margin-bottom: 6px;">Methods Execution:</span>
+            <div class="demo-btn-group">
+              <button class="demo-action-btn" id="btn-api-play">play()</button>
+              <button class="demo-action-btn" id="btn-api-pause">pause()</button>
+              <button class="demo-action-btn" id="btn-api-toggle">toggle()</button>
+              <button class="demo-action-btn" id="btn-api-restart">restart()</button>
+              <button class="demo-action-btn" id="btn-api-mute">toggleMute()</button>
+              <button class="demo-action-btn" id="btn-api-loop">toggleLoop()</button>
+              <button class="demo-action-btn" id="btn-api-fullscreen">fullscreen()</button>
+              <button class="demo-action-btn" id="btn-api-theatre">theatre()</button>
+              <button class="demo-action-btn" id="btn-api-pip">togglePip()</button>
+              <button class="demo-action-btn" id="btn-api-snap">📸 Screenshot</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Event Log Console -->
+      <div class="demo-card">
+        <h3 class="demo-card-title">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>
+          </svg>
+          Live Realtime Event Log
+        </h3>
+        <div class="demo-log-terminal" id="event-log"></div>
+      </div>
+
+    </section>
+
+    <!-- Multi-Instance Player Section -->
+    <section id="multi" style="margin-bottom: 48px;">
+      <div class="demo-hero" style="text-align: left; margin-bottom: 20px;">
+        <h2 style="font-size: 26px; font-weight: 700; margin-bottom: 6px;">Multi-Player Independence Demonstration</h2>
+        <p style="color: var(--text-muted); font-size: 15px;">
+          Run multiple player instances simultaneously without state collision, shared timers, or CSS leaks.
+        </p>
+      </div>
+
+      <div class="demo-multi-grid">
+        <div class="demo-card">
+          <h4 style="font-size: 14px; margin-bottom: 12px; color: var(--accent);">Instance #2 (Cinematic Dark Theme)</h4>
+          <div id="secondary-player" class="yogi-ply"></div>
+        </div>
+        <div class="demo-card">
+          <h4 style="font-size: 14px; margin-bottom: 12px; color: var(--accent);">Features & Gestures Highlights</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 14px; color: var(--text-muted);">
+            <li>👉 <strong>Double Tap Left/Right:</strong> Smooth 10-second seek with animated ripple chevron and badge feedback.</li>
+            <li>👉 <strong>Vertical Swipe (Left Side):</strong> Realtime brightness HUD filter (30% to 170%).</li>
+            <li>👉 <strong>Vertical Swipe (Right Side):</strong> Direct volume adjustment with HUD badge.</li>
+            <li>👉 <strong>Liquid Glass Tooltip:</strong> Hover preview showing timestamps and chapter markers.</li>
+            <li>👉 <strong>Adaptive HLS / DASH:</strong> Dynamic on-demand loading of streaming decoders.</li>
+            <li>👉 <strong>Creator Signature:</strong> Dynamic safe watermark with automatic non-intrusive movement.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Keyboard Shortcuts Guide -->
+    <section class="demo-card" style="margin-bottom: 48px;">
+      <h3 class="demo-card-title">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6.01" y2="8"/><line x1="10" y1="8" x2="10.01" y2="8"/><line x1="14" y1="8" x2="14.01" y2="8"/><line x1="18" y1="8" x2="18.01" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="6" y1="16" x2="6.01" y2="16"/><line x1="10" y1="16" x2="10.01" y2="16"/><line x1="14" y1="16" x2="14.01" y2="16"/><line x1="18" y1="16" x2="18.01" y2="16"/>
+        </svg>
+        Desktop Keyboard Shortcuts Guide
+      </h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+        <div class="demo-shortcut-item"><kbd class="demo-kbd">Space</kbd> / <kbd class="demo-kbd">K</kbd> <span>Play / Pause</span></div>
+        <div class="demo-shortcut-item"><kbd class="demo-kbd">←</kbd> / <kbd class="demo-kbd">J</kbd> <span>Rewind 10 Seconds</span></div>
+        <div class="demo-shortcut-item"><kbd class="demo-kbd">→</kbd> / <kbd class="demo-kbd">L</kbd> <span>Forward 10 Seconds</span></div>
+        <div class="demo-shortcut-item"><kbd class="demo-kbd">↑</kbd> <span>Volume Up (+5%)</span></div>
+        <div class="demo-shortcut-item"><kbd class="demo-kbd">↓</kbd> <span>Volume Down (-5%)</span></div>
+        <div class="demo-shortcut-item"><kbd class="demo-kbd">M</kbd> <span>Mute / Unmute</span></div>
+        <div class="demo-shortcut-item"><kbd class="demo-kbd">F</kbd> <span>Toggle Fullscreen</span></div>
+        <div class="demo-shortcut-item"><kbd class="demo-kbd">T</kbd> <span>Toggle Theatre Mode</span></div>
+        <div class="demo-shortcut-item"><kbd class="demo-kbd">P</kbd> <span>Picture-in-Picture</span></div>
+        <div class="demo-shortcut-item"><kbd class="demo-kbd">C</kbd> <span>Toggle Subtitles</span></div>
+        <div class="demo-shortcut-item"><kbd class="demo-kbd">Esc</kbd> <span>Close Menu / Fullscreen</span></div>
+      </div>
+    </section>
+
+    <!-- Supported Format and Browser Limitations -->
+    <section class="demo-card" style="margin-bottom: 48px;">
+      <h3 class="demo-card-title">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        Supported Formats & Browser Capabilities
+      </h3>
+      <div style="font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-top: 12px; display: flex; flex-direction: column; gap: 12px;">
+        <p>
+          <strong style="color: #fff;">Web Standard Playback:</strong> MP4 (H.264/AAC), WebM (VP8/VP9/AV1), OGV, and MOV (Safari/Apple platforms) play directly via hardware-accelerated HTML5 video decoders.
+        </p>
+        <p>
+          <strong style="color: #fff;">Adaptive Streaming (HLS & MPEG-DASH):</strong> HLS (.m3u8) is supported natively on iOS/Safari and dynamically loaded via Hls.js on MSE-compliant browsers. DASH (.mpd) is loaded dynamically via Dash.js on demand without inflating the base player bundle.
+        </p>
+        <p>
+          <strong style="color: #fff;">Legacy & Non-Web Containers:</strong> Formats like AVI, MKV, WMV, and FLV are legacy containers not supported natively by HTML5 web specifications. Yogi_PLY automatically diagnoses unsupported containers and provides actionable conversion recommendations instead of failing silently.
+        </p>
+        <p>
+          <strong style="color: #fff;">Screen Brightness Security Boundary:</strong> In compliance with browser sandboxing standards, mobile brightness gestures utilize a realtime CSS video filter (30% to 170%), as standard web pages cannot alter physical device hardware backlight.
+        </p>
+      </div>
+    </section>
+
+    <!-- Integration Guide -->
+    <section class="demo-card" id="integration" style="margin-bottom: 48px;">
+      <h3 class="demo-card-title">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+        </svg>
+        Universal Embedding & Quickstart
+      </h3>
+
+      <div style="margin-top: 16px;">
+        <h4 style="font-size: 15px; margin-bottom: 6px; color: #fff;">1. Load via CDN (jsDelivr)</h4>
+        <div class="demo-code-box">
+          <button class="demo-copy-btn">Copy</button>
+          <code>&lt;!-- Yogi_PLY Liquid Glass Video Player Stylesheet --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shiv-yogi19/Yogi_PLY@v1.0.0/dist/yogi-ply.min.css"&gt;
+
+&lt;!-- Yogi_PLY Universal Player Library --&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/shiv-yogi19/Yogi_PLY@v1.0.0/dist/yogi-ply.min.js"&gt;&lt;/script&gt;</code>
+        </div>
+      </div>
+
+      <div style="margin-top: 24px;">
+        <h4 style="font-size: 15px; margin-bottom: 6px; color: #fff;">2. Zero-JS HTML Embed (Auto-Initialization)</h4>
+        <div class="demo-code-box">
+          <button class="demo-copy-btn">Copy</button>
+          <code>&lt;div class="yogi-ply"
+     data-video="https://example.com/movie.mp4"
+     data-poster="https://example.com/poster.jpg"
+     data-theme="liquid-glass"
+     data-watermark="true"&gt;
+&lt;/div&gt;</code>
+        </div>
+      </div>
+
+      <div style="margin-top: 24px;">
+        <h4 style="font-size: 15px; margin-bottom: 6px; color: #fff;">3. Programmatic JavaScript Initialization</h4>
+        <div class="demo-code-box">
+          <button class="demo-copy-btn">Copy</button>
+          <code>const player = new YogiPLY.Player('#my-player', {
+  source: 'https://example.com/video.mp4',
+  poster: 'https://example.com/poster.jpg',
+  theme: 'liquid-glass',
+  watermark: {
+    enabled: true,
+    text: 'Created By Shiv Yogi',
+    opacity: 0.28,
+    interval: 12000
+  },
+  subtitles: [
+    { label: 'English', src: '/subs/en.vtt', default: true }
+  ]
+});
+
+player.on('play', () => console.log('Playing!'));</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comprehensive Feature Matrix -->
+    <section class="demo-card" style="margin-bottom: 48px;">
+      <h3 class="demo-card-title">Feature Matrix & Specification Compliance</h3>
+      <table class="demo-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Capability</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>UI Design System</strong></td>
+            <td>Apple-inspired Liquid Glass with frosted blur, soft white borders, circular buttons</td>
+            <td><span class="demo-badge-yes">✓ Supported</span></td>
+          </tr>
+          <tr>
+            <td><strong>Creator Signature</strong></td>
+            <td>"Created By Shiv Yogi" with periodic safe movement, subtitle avoidance & custom opacity</td>
+            <td><span class="demo-badge-yes">✓ Supported</span></td>
+          </tr>
+          <tr>
+            <td><strong>Custom SVG Icons</strong></td>
+            <td>Original 2px stroke, rounded caps and joins, zero emoji and zero external icon fonts</td>
+            <td><span class="demo-badge-yes">✓ Supported</span></td>
+          </tr>
+          <tr>
+            <td><strong>Adaptive Streaming</strong></td>
+            <td>HLS (.m3u8) & MPEG-DASH (.mpd) loaded on-demand dynamically to keep bundle ultra-light</td>
+            <td><span class="demo-badge-yes">✓ Supported</span></td>
+          </tr>
+          <tr>
+            <td><strong>Subtitles System</strong></td>
+            <td>WebVTT and SRT parser, size options (small, medium, large), and top/bottom positioning</td>
+            <td><span class="demo-badge-yes">✓ Supported</span></td>
+          </tr>
+          <tr>
+            <td><strong>Mobile Gestures</strong></td>
+            <td>Double tap seek (±10s) with chevron ripples, vertical swipe brightness & volume HUD badges</td>
+            <td><span class="demo-badge-yes">✓ Supported</span></td>
+          </tr>
+          <tr>
+            <td><strong>External Adapters</strong></td>
+            <td>YouTube and Vimeo official iframe APIs integration</td>
+            <td><span class="demo-badge-yes">✓ Supported</span></td>
+          </tr>
+          <tr>
+            <td><strong>Playlist & Chapters</strong></td>
+            <td>Multi-video playlist drawer, auto-next video, seekbar chapter ticks and tooltip preview</td>
+            <td><span class="demo-badge-yes">✓ Supported</span></td>
+          </tr>
+          <tr>
+            <td><strong>Multiple Instances</strong></td>
+            <td>Full isolated instances with unique IDs, independent state, timers, and zero CSS collision</td>
+            <td><span class="demo-badge-yes">✓ Supported</span></td>
+          </tr>
+          <tr>
+            <td><strong>Accessibility</strong></td>
+            <td>Full keyboard shortcuts (Space, Left/Right, Up/Down, M, F, T, P, C), ARIA labels & focus rings</td>
+            <td><span class="demo-badge-yes">✓ Supported</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Footer -->
+    <footer class="demo-footer">
+      <p><strong>Yogi_PLY</strong> — Universal Liquid Glass Video Player Library</p>
+      <p style="margin-top: 4px; font-size: 13px;">Created By Shiv Yogi • Licensed under MIT</p>
+      <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">
+        Tagline: <em>One Player. Every Website.</em>
+      </p>
+    </footer>
+
+  </div>
+
+  <script type="module" src="./demo.js"></script>
+</body>
+</html>

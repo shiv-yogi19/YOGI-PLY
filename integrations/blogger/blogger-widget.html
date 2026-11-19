@@ -1,0 +1,28 @@
+<!--
+  Yogi_PLY - Google Blogger / Blogspot Integration Widget
+  Created By Shiv Yogi — One Player. Every Website.
+
+  Instructions:
+  1. Go to Blogger Dashboard -> Layout.
+  2. Click "Add a Gadget" -> Select "HTML/JavaScript".
+  3. Paste the code below and replace VIDEO_URL and POSTER_URL.
+-->
+
+<div style="width:100%; max-width:850px; margin:0 auto;">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yogi-ply@1.0.0/dist/yogi-ply.min.css">
+  
+  <div id="blogger-yogi-player"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/yogi-ply@1.0.0/dist/yogi-ply.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      new YogiPLY.Player('#blogger-yogi-player', {
+        source: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+        poster: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1200&q=80',
+        title: 'Blogger Post Video',
+        theme: 'liquid-glass',
+        layout: 'cinematic'
+      });
+    });
+  </script>
+</div>
