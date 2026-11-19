@@ -1,0 +1,87 @@
+name: Extract Yogi_PLY Zip
+
+on:
+  push:
+    paths:
+      - '**/*.zip'
+  workflow_dispatch:
+    inputs:
+      delete_zip:
+        description: 'Delete zip file after extraction?'
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  extract-and-commit:
+    name: Unpack Zip and Commit Files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Extract Zip Archive
+        run: |
+          # Find zip file in repo (handles spaces or underscores)
+          ZIP_FILE=$(find . -maxdepth 2 -name "*.zip" | head -n 1)
+          if [ -z "$ZIP_FILE" ]; then
+            echo "❌ No .zip archive found in repository!"
+            exit 1
+          fi
+
+          echo "📦 Found archive: $ZIP_FILE"
+          mkdir -p temp_extracted
+          unzip -q -o "$ZIP_FILE" -d temp_extracted/
+
+          # Enable matching dotfiles (hidden files)
+          shopt -s dotglob
+
+          # Remove .github folder from extracted files to avoid GitHub App workflow permission block
+          find temp_extracted -type d -name ".github" -prune -exec rm -rf {} + 2>/dev/null || true
+
+          # Check if extraction created a single top-level directory that should be flattened
+          TOP_LEVEL_ITEMS=(temp_extracted/*)
+          if [ ${#TOP_LEVEL_ITEMS[@]} -eq 1 ] && [ -d "${TOP_LEVEL_ITEMS[0]}" ] && [ ! -f "temp_extracted/package.json" ]; then
+            NESTED_DIR="${TOP_LEVEL_ITEMS[0]}"
+            echo "📂 Moving files from nested folder ($NESTED_DIR) to repository root..."
+            cp -r "$NESTED_DIR"/* .
+          else
+            echo "📂 Moving extracted contents to repository root..."
+            cp -r temp_extracted/* .
+          fi
+
+          # Cleanup temp extraction folder
+          rm -rf temp_extracted
+
+          # Delete zip file if delete_zip is true (default true)
+          if [ "${{ github.event.inputs.delete_zip }}" != "false" ]; then
+            echo "🗑️ Deleting archive: $ZIP_FILE"
+            rm -f "$ZIP_FILE"
+          fi
+
+          # Ensure .github/workflows directory remains intact from HEAD to prevent push rejection
+          git checkout HEAD -- .github/ 2>/dev/null || true
+
+          echo "✅ Files extracted successfully:"
+          ls -la
+
+      - name: Commit and Push Extracted Files
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+
+          if git diff --staged --quiet; then
+            echo "ℹ️ No new changes detected to commit."
+          else
+            git commit -m "Auto-extract Yogi_PLY files via GitHub Actions [skip ci]"
+            git push origin ${{ github.ref_name }}
+            echo "🚀 Extracted files committed and pushed successfully!"
+          fi
